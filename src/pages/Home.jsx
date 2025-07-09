@@ -1,8 +1,12 @@
-import React from 'react'
-import {Routes, Route} from 'react-router-dom'
+// src/pages/Home.jsx
+import Feed from '../components/Feed'
 const Home = () => {
   return (
-    <div>Home</div>
+    <div className="flex">
+      <div className="flex-1">
+        <Feed />
+      </div>
+    </div>
   )
 }
 

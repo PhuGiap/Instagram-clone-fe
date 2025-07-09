@@ -1,0 +1,92 @@
+[
+  {
+    "id": "sample-1",
+    "username": "bob",
+    "image": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f",
+    "caption": "Sunset vibes at the beach 🌅"
+  },
+  {
+    "id": "sample-2",
+    "username": "alice",
+    "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
+    "caption": "Morning coffee and a good book ☕📖"
+  },
+  {
+    "id": "sample-3",
+    "username": "eric",
+    "image": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f",
+    "caption": "Wandering through the city lights 🌆"
+  },
+  {
+    "id": "sample-4",
+    "username": "diana",
+    "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
+    "caption": "Smile and the world smiles with you 😊"
+  },
+  {
+    "id": "sample-5",
+    "username": "diana",
+    "image": "https://images.unsplash.com/photo-1517841905240-472988babdf9",
+    "caption": "Chilling with furry friends 🐶"
+  },
+  {
+    "id": "sample-6",
+    "username": "charlie",
+    "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2",
+    "caption": "Adventure time in the mountains 🏔️"
+  },
+  {
+    "id": "sample-7",
+    "username": "frank",
+    "image": "https://images.unsplash.com/photo-1519681393784-d120267933ba",
+    "caption": "Coding late into the night 💻"
+  },
+  {
+    "id": "sample-8",
+    "username": "grace",
+    "image": "https://images.unsplash.com/photo-1519681393784-d120267933ba",
+    "caption": "Street food in Vietnam 🍜"
+  },
+  {
+    "id": "sample-9",
+    "username": "hannah",
+    "image": "https://images.unsplash.com/photo-1470770841072-f978cf4d019e",
+    "caption": "Travel moments frozen in time ✈️"
+  },
+  {
+    "id": "sample-10",
+    "username": "ian",
+    "image": "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce",
+    "caption": "City from above 🏙️"
+  },
+  {
+    "id": "sample-11",
+    "username": "julia",
+    "image": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2",
+    "caption": "My favorite sneakers 👟"
+  },
+  {
+    "id": "sample-12",
+    "username": "alice",
+    "image": "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f",
+    "caption": "Sweet treats for the weekend 🍩"
+  },
+  {
+    "id": "sample-13",
+    "username": "charlie",
+    "image": "https://images.unsplash.com/photo-1492724441997-5dc865305da7",
+    "caption": "Catching waves 🌊"
+  },
+  {
+    "id": "sample-14",
+    "username": "bob",
+    "image": "https://images.unsplash.com/photo-1607746882042-944635dfe10e",
+    "caption": "Night walk through the old town ✨"
+  },
+  {
+    "id": "sample-15",
+    "username": "grace",
+    "image": "https://images.unsplash.com/photo-1492724441997-5dc865305da7",
+    "caption": "Blooming days 🌸"
+  }
+]

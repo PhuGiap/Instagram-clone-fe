@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "username": "john_doe",
+    "password": "123456",
+    "avatar": "https://i.pravatar.cc/150?img=1"
+  },
+  {
+    "id": 2,
+    "username": "jane_smith",
+    "password": "password123",
+    "avatar": "https://i.pravatar.cc/150?img=2"
+  },
+  {
+    "id": 3,
+    "username": "alex99",
+    "password": "abc123",
+    "avatar": "https://i.pravatar.cc/150?img=3"
+  },
+  {
+    "id": 4,
+    "username": "emily_rose",
+    "password": "rose456",
+    "avatar": "https://i.pravatar.cc/150?img=4"
+  },
+  {
+    "id": 5,
+    "username": "michael_scott",
+    "password": "dundermifflin",
+    "avatar": "https://i.pravatar.cc/150?img=5"
+  },
+  {
+    "id": 6,
+    "username": "sarah_connor",
+    "password": "terminator",
+    "avatar": "https://i.pravatar.cc/150?img=6"
+  },
+  {
+    "id": 7,
+    "username": "tom_hardy",
+    "password": "venom",
+    "avatar": "https://i.pravatar.cc/150?img=7"
+  },
+  {
+    "id": 8,
+    "username": "lisa_kim",
+    "password": "blackpink",
+    "avatar": "https://i.pravatar.cc/150?img=8"
+  },
+  {
+    "id": 9,
+    "username": "jack_ma",
+    "password": "alibaba",
+    "avatar": "https://i.pravatar.cc/150?img=9"
+  },
+  {
+    "id": 10,
+    "username": "elon_musk",
+    "password": "spacex",
+    "avatar": "https://i.pravatar.cc/150?img=10"
+  },
+  {
+    "id": 11,
+    "username": "thaovo",
+    "password": "123456",
+    "avatar": "https://i.pravatar.cc/150?img=11"
+  },
+  {
+    "id": 12,
+    "username": "brad_pitt",
+    "password": "fightclub",
+    "avatar": "https://i.pravatar.cc/150?img=12"
+  },
+  {
+    "id": 13,
+    "username": "scarlett_johansson",
+    "password": "blackwidow",
+    "avatar": "https://i.pravatar.cc/150?img=13"
+  },
+  {
+    "id": 14,
+    "username": "robert_downey_jr",
+    "password": "ironman",
+    "avatar": "https://i.pravatar.cc/150?img=14"
+  },
+  {
+    "id": 15,
+    "username": "chris_evans",
+    "password": "captainamerica",
+    "avatar": "https://i.pravatar.cc/150?img=15"
+  },
+  {
+    "id": 16,
+    "username": "bongbeo",
+    "password": "bong2003",
+    "avatar": "https://i.pravatar.cc/150?img=16"
+  }
+]
