@@ -1,6 +1,5 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Navigate, Outlet } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-
 import Sidebar from './components/Sidebar'
 import Header from './components/Header'
 import Login from './pages/Login'
@@ -9,9 +8,19 @@ import Profile from './pages/Profile'
 import NewPost from './pages/NewPost'
 import CommentPage from './pages/CommentPage'
 import Search from './pages/Search'
-function PrivateRoute({ children }) {
+
+// Layout cho các route cần login
+function PrivateLayout() {
   const isAuthenticated = useSelector((state) => Boolean(state.user.currentUser))
-  return isAuthenticated ? children : <Navigate to="/login" replace />
+  if (!isAuthenticated) return <Navigate to="/login" replace />
+
+  return (
+    <>
+      <Header />
+      <Sidebar />
+      <Outlet />
+    </>
+  )
 }
 
 function App() {
@@ -19,39 +28,27 @@ function App() {
 
   return (
     <Router>
-      {isAuthenticated && <Header />}
-      {isAuthenticated && <Sidebar />}
-
       <Routes>
+        {/* Trang chính: redirect về /home hoặc /login */}
         <Route
           path="/"
           element={
             isAuthenticated ? <Navigate to="/home" replace /> : <Navigate to="/login" replace />
           }
         />
-        <Route path="/login" element={<Login />} />
-        <Route
-          path="/home"
-          element={
-            <PrivateRoute>
-              <Home />
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="/profile"
-          element={
-            <PrivateRoute>
-              <Profile />
-            </PrivateRoute>
-          }
-        />
-        <Route path="/new" element={<NewPost />} />
-        <Route path="/post/:postId/comments" element={<CommentPage />} />
-        <Route path="/search" element={<Search />} />
-      </Routes>
-      
 
+        {/* Login không cần bảo vệ */}
+        <Route path="/login" element={<Login />} />
+
+        {/* Các route cần đăng nhập */}
+        <Route element={<PrivateLayout />}>
+          <Route path="/home" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/new" element={<NewPost />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/post/:postId/comments" element={<CommentPage />} />
+        </Route>
+      </Routes>
     </Router>
   )
 }
