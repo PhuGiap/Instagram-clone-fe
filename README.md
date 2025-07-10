@@ -80,19 +80,13 @@ The app is designed to work with a RESTful API in the future. Example endpoints:
 
 GET /api/v1/users - List users
 
-POST /api/v1/users - Create user
-
-PUT /api/v1/users/:id - Update user
-
-DELETE /api/v1/users/:id - Delete user
-
 GET /api/v1/posts - List posts
 
 POST /api/v1/posts - Create post
 
 PUT /api/v1/posts/:id - Update post
 
-DELETE /api/v1/posts/:id - Delete post
+
 ## Key Components
 
 ### Authentication
