@@ -49,23 +49,32 @@ const Feed = () => {
   }, [reduxPosts, currentUser])
 
   const handleToggleLike = (postId) => {
-    if (!currentUser?.id) return
-    const isLiked = likedPosts[postId]
-
-    if (isLiked) {
-      unlikePost(postId, currentUser.id)
-    } else {
-      likePost(postId, currentUser.id)
-    }
-
-    setLikedPosts((prev) => ({
-      ...prev,
-      [postId]: !isLiked
-    }))
+  if (!currentUser?.id) {
+    alert('Vui lòng đăng nhập để thích bài viết.')
+    return
   }
 
+  const isLiked = likedPosts[postId]
 
-  const users = getUsers()
+  if (isLiked) {
+    unlikePost(postId, currentUser.id)
+  } else {
+    likePost(postId, currentUser.id)
+  }
+
+  setLikedPosts((prev) => ({
+    ...prev,
+    [postId]: !isLiked
+  }))
+}
+
+
+
+  const [users, setUsers] = useState([])
+
+useEffect(() => {
+  setUsers(getUsers() || [])
+}, [])
 
 const allPosts = [...reduxPosts, ...samplePosts].map((post) => {
   const user = users.find(

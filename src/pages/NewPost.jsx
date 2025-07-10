@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { addPost } from '../redux/postSlice' 
+import { useEffect } from 'react'
 
 const NewPost = () => {
   const [image, setImage] = useState(null)
@@ -10,7 +11,11 @@ const NewPost = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const currentUser = useSelector(state => state.user.currentUser)
-
+  useEffect(() => {
+  if (!currentUser) {
+    navigate('/login')
+  }
+}, [currentUser, navigate])
   const handleImageChange = (e) => {
     const file = e.target.files[0]
     if (file) {

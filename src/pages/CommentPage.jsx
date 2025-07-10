@@ -1,18 +1,23 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { getUsers } from '../utils/localStorage'
+import { addComment, loadComments } from '../redux/commentSlice'
 
 const CommentPage = () => {
   const { postId } = useParams()
+  const dispatch = useDispatch()
+
   const reduxPosts = useSelector((state) => state.post.posts)
   const currentUser = useSelector((state) => state.user.currentUser)
+  const comments = useSelector((state) => state.comment.commentsByPostId[postId] || [])
+
   const [post, setPost] = useState(null)
-  const [comments, setComments] = useState([])
   const [input, setInput] = useState('')
   const [samplePosts, setSamplePosts] = useState([])
   const [expandedComments, setExpandedComments] = useState({})
 
+  // Load sample posts từ file JSON
   useEffect(() => {
     fetch('/posts.json')
       .then((res) => res.json())
@@ -20,48 +25,42 @@ const CommentPage = () => {
       .catch((err) => console.error('Failed to load sample posts:', err))
   }, [])
 
+  // Tìm post theo postId và load comment từ Redux
   useEffect(() => {
     const allPosts = [...reduxPosts, ...samplePosts]
     const found = allPosts.find((p) => p.id === postId)
     setPost(found)
 
-    const saved = JSON.parse(localStorage.getItem('comments') || '{}')
-    setComments(saved[postId] || [])
-  }, [postId, reduxPosts, samplePosts])
+    dispatch(loadComments({ postId }))
+  }, [postId, reduxPosts, samplePosts, dispatch])
 
- const handleAddComment = () => {
-  if (!currentUser) {
-    alert('You must be logged in to comment.')
-    return
+  // Thêm comment mới
+  const handleAddComment = () => {
+    if (!currentUser) {
+      alert('You must be logged in to comment.')
+      return
+    }
+
+    if (!input.trim()) return
+
+    const now = new Date()
+    const formattedTime = `${now.toLocaleDateString('vi-VN')} ${now.toLocaleTimeString('vi-VN', {
+      hour: '2-digit',
+      minute: '2-digit',
+    })}`
+
+    const newComment = {
+      id: Date.now(),
+      userId: currentUser.id,
+      username: currentUser.username,
+      avatar: currentUser.avatar,
+      text: input.trim(),
+      time: formattedTime,
+    }
+
+    dispatch(addComment({ postId, comment: newComment }))
+    setInput('')
   }
-
-  if (!input.trim()) return
-
-  const now = new Date()
-  const formattedTime = `${now.toLocaleDateString('vi-VN')} ${now.toLocaleTimeString('vi-VN', {
-    hour: '2-digit',
-    minute: '2-digit',
-  })}`
-
-  const newComment = {
-    id: Date.now(),
-    userId: currentUser.id,
-    username: currentUser.username,
-    avatar: currentUser.avatar,
-    text: input.trim(),
-    time: formattedTime,
-  }
-
-  const updated = [...comments, newComment]
-  setComments(updated)
-
-  const all = JSON.parse(localStorage.getItem('comments') || '{}')
-  all[postId] = updated
-  localStorage.setItem('comments', JSON.stringify(all))
-
-  setInput('')
-}
-
 
   const toggleExpand = (id) => {
     setExpandedComments((prev) => ({
