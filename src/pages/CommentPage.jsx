@@ -7,7 +7,6 @@ const CommentPage = () => {
   const { postId } = useParams()
   const reduxPosts = useSelector((state) => state.post.posts)
   const currentUser = useSelector((state) => state.user.currentUser)
-  const users = getUsers()
   const [post, setPost] = useState(null)
   const [comments, setComments] = useState([])
   const [input, setInput] = useState('')
