@@ -29,33 +29,39 @@ const CommentPage = () => {
     setComments(saved[postId] || [])
   }, [postId, reduxPosts, samplePosts])
 
-  const handleAddComment = () => {
-    if (!input.trim()) return
-
-    const now = new Date()
-    const formattedTime = `${now.toLocaleDateString('vi-VN')} ${now.toLocaleTimeString('vi-VN', {
-      hour: '2-digit',
-      minute: '2-digit',
-    })}`
-
-    const newComment = {
-      id: Date.now(),
-      userId: currentUser.id,
-      username: currentUser.username,
-      avatar: currentUser.avatar,
-      text: input.trim(),
-      time: formattedTime,
-    }
-
-    const updated = [...comments, newComment]
-    setComments(updated)
-
-    const all = JSON.parse(localStorage.getItem('comments') || '{}')
-    all[postId] = updated
-    localStorage.setItem('comments', JSON.stringify(all))
-
-    setInput('')
+ const handleAddComment = () => {
+  if (!currentUser) {
+    alert('You must be logged in to comment.')
+    return
   }
+
+  if (!input.trim()) return
+
+  const now = new Date()
+  const formattedTime = `${now.toLocaleDateString('vi-VN')} ${now.toLocaleTimeString('vi-VN', {
+    hour: '2-digit',
+    minute: '2-digit',
+  })}`
+
+  const newComment = {
+    id: Date.now(),
+    userId: currentUser.id,
+    username: currentUser.username,
+    avatar: currentUser.avatar,
+    text: input.trim(),
+    time: formattedTime,
+  }
+
+  const updated = [...comments, newComment]
+  setComments(updated)
+
+  const all = JSON.parse(localStorage.getItem('comments') || '{}')
+  all[postId] = updated
+  localStorage.setItem('comments', JSON.stringify(all))
+
+  setInput('')
+}
+
 
   const toggleExpand = (id) => {
     setExpandedComments((prev) => ({
